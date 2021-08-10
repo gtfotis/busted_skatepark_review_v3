@@ -4,11 +4,15 @@ class Parks {
     constructor(id, name, address, picture) {
         this.id = id;
         this.name = name;
+        this.address = address;
+        this.picture = picture;
     }
 
     static async getAll() {
         try {
-            const response = await db.any(`SELECT * FROM parks;`);
+            const response = await db.any(
+                `SELECT * FROM parks;`
+            );
             return response;
         } catch (err) {
             return err.message;
@@ -27,3 +31,4 @@ class Parks {
 
 }
 
+module.exports = Parks;

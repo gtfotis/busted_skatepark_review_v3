@@ -2,16 +2,16 @@
     <div class="clearfix">
         <p>${parkData.address}</p>
         <figure class="image">
-            <img src="${parkData.picture}"/>
+            <img src="${parkData.picture}" />
         </figure>
     </div>
     <div class="clearfix">
         <ul style="margin-top: 16px;">
-            ${reviewData.map(review =>
-                <li>
-                    <span class="score" style="display: inline-block; width: 100%;">${review.score} Stars</span>
-                    <p>${review.content}</p>
-                </li>
+            ${reviewData.map(review =>`
+            <li>
+                <span class="score" style="display: inline-block; width: 100%;">${review.score} Stars</span>
+                <p>${review.content}</p>
+            </li>
             `).join('')}
         </ul>
     </div>

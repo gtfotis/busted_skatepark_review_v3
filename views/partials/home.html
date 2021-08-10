@@ -1,14 +1,14 @@
 <section class="section">
     <ul class="level">
         ${parkData.map(park => `
-            <li style="width: 100%">
-                <a href="/parks/${park.id}" class="is-pulled-left">
-                    <figure class="image is-128x128 is-pulled-left" style="margin-right: 16px;">
-                        <img src="${park.picture}"/>
-                    </figure>
-                    ${park.name}
-                </a>
-            </li>
-        `)}
+        <li style="width: 100%">
+            <a href="/parks/${park.id}" class="is-pulled-left">
+                <figure class="image is-128x128 is-pulled-left" style="margin-right: 16px;">
+                    <img src="${park.picture}" />
+                </figure>
+                ${park.name}
+            </a>
+        </li>
+        `).join('')}
     </ul>
 </section>

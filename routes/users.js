@@ -1,6 +1,7 @@
+'use strict';
 const express = require('express');
 const router = express.Router();
-const bycrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs');
 const UsersModel = require('../models/Users');
 
 /* GET user routes */
@@ -35,19 +36,19 @@ router.get('/logout', (req, res) => {
 })
 
 /* POST user routes. */
-router.post('/signup', async (req, res) => {
+router.post('/signup', async(req, res) => {
     const { first_name, last_name, email, password } = req.body;
     const salt = bcrypt.genSaltSync();
     const hash = bcrypt.hashSync(password, salt);
-    const response = await UsersModel.addUsr(first_name, last_name, email, hash);
-    if (!!response.id) {
+    const response = await UsersModel.addUser(first_name, last_name, email, hash);
+    if (response.id) {
         res.redirect('/users/login');
     } else {
         res.status(500).send('ERROR: Please try submitting the form again.');
     }
 });
 
-router.post('/login', async (req, res) => {
+router.post('/login', async(req, res) => {
     const { email, password } = req.body;
     const user = new UsersModel(null, null, null, email, password);
     const response = await user.login();

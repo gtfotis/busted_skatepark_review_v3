@@ -3,23 +3,18 @@
     <title>Express Demo | ${title}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"/>
-    <link rel="stylesheet" href="/stylesheets/style.css"/>
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="icon" href="/images/sean.png" type="image/x-icon" />
 </head>
+
 <body>
     <nav class="navbar main-nav  is-dark" role="navigation" aria-label="main navigation">
         <div class="navbar-start">
-            <a class="navbar-item" href='/'>Home</a>
-            ${!!is_logged_in ?
-                    `<a class='navbar-item' href='/users/logout'>Logout</a>`
-                :
-                `
-                    <a class="navbar-item" href='/users/signup'>Register</a>
-                    <a class="navbar-item" href='/users/login'>Login</a>
-                `
-            }
-            >>
+            <a class="navbar-item" href='/'>Home</a> ${!!is_logged_in ? `
+            <a class='navbar-item' href='/users/logout'>Logout</a>` : `
+            <a class="navbar-item" href='/users/signup'>Register</a>
+            <a class="navbar-item" href='/users/login'>Login</a> ` }
         </div>
     </nav>
     <h1 class="container">${title}</h1>
@@ -27,4 +22,5 @@
         ${body}
     </main>
 </body>
+
 </html>
